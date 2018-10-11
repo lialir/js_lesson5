@@ -51,61 +51,61 @@
 					var td = document.createElement('td');
 
 					if (col>1 && row>1 && row+col>3 && row+col<=18 && row<10 && col<10 && (row+col)%2==0 ) {
-                        td.style.background = 'beige';
-                    }
-                    else if(col!=1 && row!=1 && col!=10 && row!=10){
-                    	td.style.background = 'black';
-                    }
+                        			td.style.background = 'beige';
+                    			}
+                    			else if(col!=1 && row!=1 && col!=10 && row!=10){
+                    				td.style.background = 'black';
+                    			}
 
-                    if (col>1 && col<10){
-                    	if (row==1 || row ==10){
-                    		if(row==1){
-                    			td.className = 'rotate';
-                    		}
-                    		ins="";
-                    		ins+=letter[col-2];
-                    	}
-                    	else{
-                    		ins='';
-                    	}
-                    }
+                   			if (col>1 && col<10){
+                    				if (row==1 || row ==10){
+                    					if(row==1){
+                    						td.className = 'rotate';
+							}
+						ins="";
+						ins+=letter[col-2];
+						}
+						else{
+							ins='';
+						}
+                    			}
 
-                    if (row>1 && row <10 && (col==1 || col==10)){
-                    	ins='';
-                    	ins+=10-row;
-                    }
+				    if (row>1 && row <10 && (col==1 || col==10)){
+					ins='';
+					ins+=10-row;
+				    }
 
-                    if (row==2 && col!=1 && col!=10){
-                    	ins='';
-                    	ins+=blackfig[col-2];
-                    	td.className = 'bfig'
-                    }
+				    if (row==2 && col!=1 && col!=10){
+					ins='';
+					ins+=blackfig[col-2];
+					td.className = 'bfig'
+				    }
 
-                    if (row==3 && col!=1 && col!=10) {
-                    	ins='';
-                    	ins+=blackfig[8];
-                    	td.className = 'bfig'
-                    }
+				    if (row==3 && col!=1 && col!=10) {
+					ins='';
+					ins+=blackfig[8];
+					td.className = 'bfig'
+				    }
 
 
-                    if (row==9 && col!=1 && col!=10){
-                    	ins='';
-                    	ins+=whitefig[col-2];
-                    	td.className = 'wfig'
-                    }
+				    if (row==9 && col!=1 && col!=10){
+					ins='';
+					ins+=whitefig[col-2];
+					td.className = 'wfig'
+				    }
 
-                    if (row==8 && col!=1 && col!=10) {
-                    	ins='';
-                    	ins+=whitefig[8];
-                    	td.className = 'wfig'
-                    }
+				    if (row==8 && col!=1 && col!=10) {
+					ins='';
+					ins+=whitefig[8];
+					td.className = 'wfig'
+				    }
 
-                    if((row==10 && col==10) || (row==10 && col==1) || (row==1 && col==10)){
-                    	ins='';
-                    }
+				    if((row==10 && col==10) || (row==10 && col==1) || (row==1 && col==10)){
+					ins='';
+				    }
 
-					td.innerHTML = ins;
-					tr.appendChild(td);
+				td.innerHTML = ins;
+				tr.appendChild(td);
 				}
   			}
 	}
