@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+
+	<style type="text/css">
+
+		table{
+			width: 800px;
+			height: 800px;
+		}
+		
+		td{
+			width: 10%;
+			height: 10%;
+			text-align: center;
+			font-size: 40px;
+		}
+
+		.rotate{
+			transform: rotate(180deg);
+		}
+
+		.bfig{	
+			color: blue;
+			font-size: 60px;
+		}
+
+		.wfig{
+			color: green;
+			font-size: 60px;
+		}
+
+	</style>
+
+<script>
+	function DrawChess(){
+
+		var whitefig = ['&#9814', '&#9816', '&#9815', '&#9813', '&#9812', '&#9815', '&#9816', '&#9814','&#9817'];
+		var blackfig = ['&#9820', '&#9822', '&#9821', '&#9819', '&#9818', '&#9821', '&#9822', '&#9820','&#9823'];
+		var letter=["A","B","C","D","E","F", "G","H"]
+
+		var passtable = document.getElementById('passtable');
+		var table = document.createElement('table');
+  			passtable.appendChild(table);
+  			var ins="";
+
+  			for (var row = 1; row <= 10; row++) {
+				var tr = document.createElement('tr');
+	  			table.appendChild(tr);
+	  			for (var col = 1; col <= 10; col++) {
+					var td = document.createElement('td');
+
+					if (col>1 && row>1 && row+col>3 && row+col<=18 && row<10 && col<10 && (row+col)%2==0 ) {
+                        td.style.background = 'beige';
+                    }
+                    else if(col!=1 && row!=1 && col!=10 && row!=10){
+                    	td.style.background = 'black';
+                    }
+
+                    if (col>1 && col<10){
+                    	if (row==1 || row ==10){
+                    		if(row==1){
+                    			td.className = 'rotate';
+                    		}
+                    		ins="";
+                    		ins+=letter[col-2];
+                    	}
+                    	else{
+                    		ins='';
+                    	}
+                    }
+
+                    if (row>1 && row <10 && (col==1 || col==10)){
+                    	ins='';
+                    	ins+=10-row;
+                    }
+
+                    if (row==2 && col!=1 && col!=10){
+                    	ins='';
+                    	ins+=blackfig[col-2];
+                    	td.className = 'bfig'
+                    }
+
+                    if (row==3 && col!=1 && col!=10) {
+                    	ins='';
+                    	ins+=blackfig[8];
+                    	td.className = 'bfig'
+                    }
+
+
+                    if (row==9 && col!=1 && col!=10){
+                    	ins='';
+                    	ins+=whitefig[col-2];
+                    	td.className = 'wfig'
+                    }
+
+                    if (row==8 && col!=1 && col!=10) {
+                    	ins='';
+                    	ins+=whitefig[8];
+                    	td.className = 'wfig'
+                    }
+
+                    if((row==10 && col==10) || (row==10 && col==1) || (row==1 && col==10)){
+                    	ins='';
+                    }
+
+					td.innerHTML = ins;
+					tr.appendChild(td);
+				}
+  			}
+	}
+	//DrawChess();
+
+</script>
+
+</head>
+<body>
+	<p>
+		<a href="javascript:void(0);" onclick="DrawChess();">DrawChess</a>
+		<div id="passtable"></div>
+	</p>
+</body>
+</html>
